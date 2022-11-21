@@ -1,4 +1,4 @@
-# Install script for directory: /home/students/test_02/user-land-filesystem/fs/simplefs
+# Install script for directory: /home/students/200110526/user-land-filesystem/fs/simplefs
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -50,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/students/test_02/user-land-filesystem/fs/simplefs/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/students/200110526/user-land-filesystem/fs/simplefs/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

@@ -4,5 +4,7 @@
         "*.wxss": "css",
         "*.wxs": "javascript",
         "ioctl.h": "c"
-    }
+    },
+    "cmake.configureOnOpen": true,
+    "cmake.sourceDirectory": "${workspaceFolder}/fs/newfs"
 }

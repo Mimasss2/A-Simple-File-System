@@ -4,7 +4,7 @@
 # compile C with /usr/bin/gcc
 C_DEFINES = 
 
-C_INCLUDES = -I/home/students/test_02/user-land-filesystem/fs/simplefs/./include
+C_INCLUDES = -I/home/students/200110526/user-land-filesystem/fs/simplefs/./include
 
 C_FLAGS =  -D_FILE_OFFSET_BITS=64 -no-pie -g -Wall --pedantic -g
 

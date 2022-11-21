@@ -54,10 +54,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/students/test_02/user-land-filesystem/fs/simplefs
+CMAKE_SOURCE_DIR = /home/students/200110526/user-land-filesystem/fs/simplefs
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/students/test_02/user-land-filesystem/fs/simplefs/build
+CMAKE_BINARY_DIR = /home/students/200110526/user-land-filesystem/fs/simplefs/build
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -81,14 +81,14 @@ clean: CMakeFiles/sfs-fuse.dir/clean
 CMakeFiles/sfs-fuse.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/sfs-fuse.dir/build.make CMakeFiles/sfs-fuse.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/sfs-fuse.dir/build.make CMakeFiles/sfs-fuse.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/students/test_02/user-land-filesystem/fs/simplefs/build/CMakeFiles --progress-num=1,2,3,4 "Built target sfs-fuse"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/students/200110526/user-land-filesystem/fs/simplefs/build/CMakeFiles --progress-num=1,2,3,4 "Built target sfs-fuse"
 .PHONY : CMakeFiles/sfs-fuse.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/sfs-fuse.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/students/test_02/user-land-filesystem/fs/simplefs/build/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/students/200110526/user-land-filesystem/fs/simplefs/build/CMakeFiles 4
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/sfs-fuse.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/students/test_02/user-land-filesystem/fs/simplefs/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/students/200110526/user-land-filesystem/fs/simplefs/build/CMakeFiles 0
 .PHONY : CMakeFiles/sfs-fuse.dir/rule
 
 # Convenience name for target.

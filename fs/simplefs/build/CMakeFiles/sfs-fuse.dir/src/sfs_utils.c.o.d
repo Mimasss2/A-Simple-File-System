@@ -1,7 +1,7 @@
 CMakeFiles/sfs-fuse.dir/src/sfs_utils.c.o: \
- /home/students/test_02/user-land-filesystem/fs/simplefs/src/sfs_utils.c \
+ /home/students/200110526/user-land-filesystem/fs/simplefs/src/sfs_utils.c \
  /usr/include/stdc-predef.h \
- /home/students/test_02/user-land-filesystem/fs/simplefs/src/../include/sfs.h \
+ /home/students/200110526/user-land-filesystem/fs/simplefs/src/../include/sfs.h \
  /usr/include/stdio.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
  /usr/include/features.h /usr/include/features-time64.h \
@@ -76,8 +76,8 @@ CMakeFiles/sfs-fuse.dir/src/sfs_utils.c.o: \
  /usr/include/x86_64-linux-gnu/sys/uio.h \
  /usr/include/x86_64-linux-gnu/bits/types/struct_iovec.h \
  /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
- /home/students/test_02/user-land-filesystem/fs/simplefs/src/../include/ddriver.h \
- /home/students/test_02/user-land-filesystem/fs/simplefs/src/../include/ddriver_ctl_user.h \
+ /home/students/200110526/user-land-filesystem/fs/simplefs/src/../include/ddriver.h \
+ /home/students/200110526/user-land-filesystem/fs/simplefs/src/../include/ddriver_ctl_user.h \
  /usr/include/x86_64-linux-gnu/sys/ioctl.h \
  /usr/include/x86_64-linux-gnu/bits/ioctls.h \
  /usr/include/x86_64-linux-gnu/asm/ioctls.h \
@@ -89,4 +89,4 @@ CMakeFiles/sfs-fuse.dir/src/sfs_utils.c.o: \
  /usr/include/x86_64-linux-gnu/bits/errno.h /usr/include/linux/errno.h \
  /usr/include/x86_64-linux-gnu/asm/errno.h \
  /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
- /home/students/test_02/user-land-filesystem/fs/simplefs/src/../include/types.h
+ /home/students/200110526/user-land-filesystem/fs/simplefs/src/../include/types.h

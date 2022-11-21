@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/students/test_02/user-land-filesystem/fs/simplefs
+CMAKE_SOURCE_DIR = /home/students/200110526/user-land-filesystem/fs/simplefs
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/students/test_02/user-land-filesystem/fs/simplefs/build
+CMAKE_BINARY_DIR = /home/students/200110526/user-land-filesystem/fs/simplefs/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/students/test_02/user-land-filesystem/fs/simplefs/build/CMakeFiles /home/students/test_02/user-land-filesystem/fs/simplefs/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/students/200110526/user-land-filesystem/fs/simplefs/build/CMakeFiles /home/students/200110526/user-land-filesystem/fs/simplefs/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/students/test_02/user-land-filesystem/fs/simplefs/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/students/200110526/user-land-filesystem/fs/simplefs/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
