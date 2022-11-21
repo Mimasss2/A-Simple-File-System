@@ -1,0 +1,3 @@
+/home/students/200110526/user-land-filesystem/tests/test_ddriver/CMakeFiles/ddriver_test.dir
+/home/students/200110526/user-land-filesystem/tests/test_ddriver/CMakeFiles/edit_cache.dir
+/home/students/200110526/user-land-filesystem/tests/test_ddriver/CMakeFiles/rebuild_cache.dir
