@@ -1,7 +1,7 @@
 #ifndef _TYPES_H_
 #define _TYPES_H_
 
-/******************************************************************************
+/* *****************************************************************************
 * SECTION: Type def
 *******************************************************************************/
 typedef int          boolean;
@@ -12,7 +12,7 @@ typedef enum sfs_file_type {
     SFS_DIR,
     SFS_SYM_LINK
 } SFS_FILE_TYPE;
-/******************************************************************************
+/* *****************************************************************************
 * SECTION: Macro
 *******************************************************************************/
 #define TRUE                    1
@@ -23,8 +23,6 @@ typedef enum sfs_file_type {
 #define SFS_MAGIC_NUM           0x52415453  
 #define SFS_SUPER_OFS           0
 #define SFS_ROOT_INO            0
-
-
 
 #define SFS_ERROR_NONE          0
 #define SFS_ERROR_ACCESS        EACCES
@@ -47,7 +45,7 @@ typedef enum sfs_file_type {
 
 #define SFS_FLAG_BUF_DIRTY      0x1
 #define SFS_FLAG_BUF_OCCUPY     0x2
-/******************************************************************************
+/* *****************************************************************************
 * SECTION: Macro Function
 *******************************************************************************/
 #define SFS_IO_SZ()                     (sfs_super.sz_io)
@@ -60,16 +58,15 @@ typedef enum sfs_file_type {
 #define SFS_BLKS_SZ(blks)               (blks * SFS_IO_SZ())
 #define SFS_ASSIGN_FNAME(psfs_dentry, _fname)\ 
                                         memcpy(psfs_dentry->fname, _fname, strlen(_fname))
-#define SFS_INO_OFS(ino)                (sfs_super.data_offset + ino * SFS_BLKS_SZ((\
-                                        SFS_INODE_PER_FILE + SFS_DATA_PER_FILE)))
+#define SFS_INO_OFS(ino)                (sfs_super.data_offset + ino * SFS_BLKS_SZ(SFS_INODE_PER_FILE + SFS_DATA_PER_FILE))
 #define SFS_DATA_OFS(ino)               (SFS_INO_OFS(ino) + SFS_BLKS_SZ(SFS_INODE_PER_FILE))
 
 #define SFS_IS_DIR(pinode)              (pinode->dentry->ftype == SFS_DIR)
 #define SFS_IS_REG(pinode)              (pinode->dentry->ftype == SFS_REG_FILE)
 #define SFS_IS_SYM_LINK(pinode)         (pinode->dentry->ftype == SFS_SYM_LINK)
-/******************************************************************************
+/* *****************************************************************************
 * SECTION: FS Specific Structure - In memory structure
-*******************************************************************************/
+****************************************************************************** */
 struct sfs_dentry;
 struct sfs_inode;
 struct sfs_super;
@@ -112,7 +109,10 @@ struct sfs_super
     uint8_t*           map_inode;
     int                map_inode_blks;
     int                map_inode_offset;
-    
+    // uint8_t *          map_data;
+    // int                map_data_blks;
+    // int                map_data_offset;
+
     int                data_offset;
 
     boolean            is_mounted;
@@ -130,17 +130,19 @@ static inline struct sfs_dentry* new_dentry(char * fname, SFS_FILE_TYPE ftype) {
     dentry->parent  = NULL;
     dentry->brother = NULL;                                            
 }
-/******************************************************************************
+/* *****************************************************************************
 * SECTION: FS Specific Structure - Disk structure
 *******************************************************************************/
 struct sfs_super_d
 {
-    uint32_t           magic_num;
+    uint32_t           magic_num;  
     int                sz_usage;
     
     int                max_ino;
     int                map_inode_blks;
     int                map_inode_offset;
+    // int                map_data_blks;
+    // int                map_data_offset;
     int                data_offset;
 };
 
