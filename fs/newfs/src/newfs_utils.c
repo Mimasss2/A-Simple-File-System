@@ -255,6 +255,8 @@ int fs_calc_lvl(const char * path) {
 int fs_alloc_dentry(struct newfs_inode* inode, struct newfs_dentry* dentry) {
     if (inode->dentrys == NULL) {
         inode->dentrys = dentry;
+        inode->block_pointer[0] = fs_alloc_data();
+        inode->data[0] = (uint8_t *)malloc(SFS_BLOCK_SZ());
     }
     else {
         dentry->brother = inode->dentrys;
@@ -348,6 +350,10 @@ struct newfs_inode* fs_alloc_inode(struct newfs_dentry * dentry) {
             inode->data[i] = (uint8_t*)malloc(SFS_BLOCK_SZ());
         }
     }
+    // else if (SFS_IS_DIR(inode)) {
+    //     inode->block_pointer[0] = fs_alloc_data();
+    //     inode->data[0] = (uint8_t *)malloc(SFS_BLOCK_SZ());
+    // }
 
     return inode;
 }
@@ -367,7 +373,7 @@ int fs_alloc_data() {
         for (bit_cursor = 0; bit_cursor < UINT8_BITS; bit_cursor++) {
             if((newfs_super.map_data[byte_cursor] & (0x1 << bit_cursor)) == 0) {    
                                                       /* 当前ino_cursor位置空闲 */
-                newfs_super.map_inode[byte_cursor] |= (0x1 << bit_cursor);
+                newfs_super.map_data[byte_cursor] |= (0x1 << bit_cursor);
                 is_find_free_entry = TRUE;           
                 break;
             }

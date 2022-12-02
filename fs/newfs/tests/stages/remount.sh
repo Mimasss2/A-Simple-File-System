@@ -25,6 +25,7 @@ LAYOUT_FILE_ERR=3
 GOLDEN_LAYOUT_MISMATCH=4
 
 function check_bm() {
+    # sleep 1
     _PARAM=$1
     _TEST_CASE=$2
     ROOT_PARENT_PATH=$(cd $(dirname $ROOT_PATH); pwd)
@@ -53,6 +54,8 @@ mkdir_and_check "${MNTPOINT}/hello"
 
 TEST_CASE="case 5.1 - umount ${MNTPOINT}"
 core_tester ls "${MNTPOINT}" check_umount "$TEST_CASE"
+
+sleep 1
 
 TEST_CASE="case 5.2 - check bitmap"
 core_tester ls "${MNTPOINT}" check_bm "$TEST_CASE" 15

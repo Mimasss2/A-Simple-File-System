@@ -140,9 +140,6 @@ static inline struct newfs_dentry* new_dentry(char * fname, FILE_TYPE ftype) {
 struct newfs_super_d
 { 
     uint32_t    magic_num;
-    // int         sz_io;
-    // int         sz_block;
-    // int         sz_disk;
 
     int         max_ino; // 最多支持的文件数
 
