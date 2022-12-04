@@ -132,7 +132,6 @@ int fs_mount(struct custom_options options){
         SFS_DBG("data map blocks: %d\n", map_data_blks);
         is_init = TRUE;
     }
-    newfs_super.sz_usage   = newfs_super_d.sz_usage;      /* 建立 in-memory 结构 */
     
     newfs_super.map_inode = (uint8_t *)malloc(SFS_BLKS_SZ(newfs_super_d.map_inode_blks));
     newfs_super.map_data = (uint8_t *)malloc(SFS_BLKS_SZ(newfs_super_d.map_data_blks));
@@ -142,6 +141,7 @@ int fs_mount(struct custom_options options){
     newfs_super.map_data_offset = newfs_super_d.map_data_offset;
     newfs_super.data_offset = newfs_super_d.data_offset;
     newfs_super.inode_offset = newfs_super_d.inode_offset;
+    newfs_super.sz_usage = newfs_super_d.sz_usage;
 
     if (fs_driver_read(newfs_super_d.map_inode_offset, (uint8_t *)(newfs_super.map_inode), 
                         SFS_BLKS_SZ(newfs_super_d.map_inode_blks)) != SFS_ERROR_NONE) {

@@ -45,15 +45,11 @@ static struct fuse_operations operations = {
  * @return void*
  */
 void* newfs_init(struct fuse_conn_info * conn_info) {
-	/* TODO: 在这里进行挂载 */
 	if (fs_mount(newfs_options) != SFS_ERROR_NONE) {
         SFS_DBG("[%s] mount error\n", __func__);
 		fuse_exit(fuse_get_context()->fuse);
 		return NULL;
 	} 
-	/* 下面是一个控制设备的示例 */
-	// super.fd = ddriver_open(newfs_options.device);
-
 	return NULL;
 }
 
@@ -64,9 +60,6 @@ void* newfs_init(struct fuse_conn_info * conn_info) {
  * @return void
  */
 void newfs_destroy(void* p) {
-	/* TODO: 在这里进行卸载 */
-	
-	// ddriver_close(newfs_super.fd);
 	if (fs_umount() != SFS_ERROR_NONE) {
 		SFS_DBG("[%s] unmount error\n", __func__);
 		fuse_exit(fuse_get_context()->fuse);
@@ -164,7 +157,7 @@ int newfs_getattr(const char* path, struct stat * newfs_stat) {
  *				const struct stat *stbuf, off_t off)
  * buf: name会被复制到buf中
  * name: dentry名字
- * stbuf: 文件状态，可忽略
+ * stbuf: 文件状态，可忽略`
  * off: 下一次offset从哪里开始，这里可以理解为第几个dentry
  * 
  * @param offset 第几个目录项？

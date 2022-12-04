@@ -73,14 +73,13 @@ struct custom_options {
 * SECTION: FS Specific Structure - In memory structure
 *******************************************************************************/
 struct newfs_super {
-    // uint32_t    magic_num;  // 幻数
-    int         driver_fd;
+    int         driver_fd; // 磁盘对应的文件描述符
     /* TODO: Define yourself */
-    int         max_ino;
+    int         max_ino; // 所能容纳的最大文件数量
 
-    int         sz_io;
-    int         sz_block;
-    int         sz_disk;
+    int         sz_io; // 与磁盘数据交换的块大小
+    int         sz_block; // 文件系统的块大小
+    int         sz_disk; // 磁盘的容量大小
 
     uint8_t     *map_inode; // inode位图
     uint8_t     *map_data;  // data位图
@@ -92,12 +91,12 @@ struct newfs_super {
 
     struct newfs_dentry *root_dentry; // 根目录dentry
 
-    int data_offset;
-    int inode_offset;
+    int inode_offset; // inode块在磁盘上的偏移
+    int data_offset;  // data块在磁盘上的偏移
+
+    int sz_usage; // 已用空间
 
     boolean is_mounted;
-
-    int         sz_usage;
 };
 
 struct newfs_inode {
@@ -108,17 +107,17 @@ struct newfs_inode {
     struct newfs_dentry *dentry;  // 指向该inode的dentry
     struct newfs_dentry *dentrys; // 所有目录项
     int block_pointer[6];   // 数据块指针
-    uint8_t* data[6]; 
+    uint8_t* data[6];       // 对应数据块中存储的内容
     
 };
 
 struct newfs_dentry {
     /* TODO: Define yourself */
     char                fname[MAX_NAME_LEN];
-    uint32_t            ino;
-    struct newfs_inode*   inode; 
-    struct newfs_dentry*  parent;                        /* 父亲Inode的dentry */
-    struct newfs_dentry*  brother;                       /* 兄弟 */
+    uint32_t            ino; // 在inode位图中的下标
+    struct newfs_inode*   inode;
+    struct newfs_dentry*  parent;   
+    struct newfs_dentry*  brother;                      
     FILE_TYPE       ftype; // 指向的 ino 文件类型
     int             valid; // 该目录项是否有效
 };
@@ -139,7 +138,7 @@ static inline struct newfs_dentry* new_dentry(char * fname, FILE_TYPE ftype) {
  *******************************************************************************/
 struct newfs_super_d
 { 
-    uint32_t    magic_num;
+    uint32_t    magic_num; // 验证磁盘是否已经被挂载的幻数
 
     int         max_ino; // 最多支持的文件数
 
@@ -149,17 +148,16 @@ struct newfs_super_d
     int         map_data_blks; // data 位图占用的块数
     int         map_data_offset; // data 位图在磁盘上的偏移
 
-    int         inode_offset;
-    int         data_offset;
+    int         inode_offset; // inode块在磁盘上的偏移
+    int         data_offset; // data块在磁盘上的偏移
 
-    int         sz_usage;
+    int         sz_usage; // 已用空间
 };
 
 struct newfs_inode_d
 {
     uint32_t    ino;                // 在 inode 位图中的下标
     int         size;               // 文件已占用空间
-    // int         link;               // 链接数
     FILE_TYPE   ftype;              // 文件类型（目录类型、普通文件类型）
     int         dir_cnt;            // 如果是目录类型文件，下面有几个目录项
     int         block_pointer[6];   // 数据块指针（可固定分配）
@@ -167,9 +165,9 @@ struct newfs_inode_d
 
 struct newfs_dentry_d
 {
-    char               fname[SFS_MAX_FILE_NAME];
-    FILE_TYPE          ftype;
-    int                ino;                           /* 指向的ino号 */
+    char               fname[SFS_MAX_FILE_NAME];  // 文件名
+    FILE_TYPE          ftype;                     // 文件格式
+    int                ino;                       // 在inode位图中的下标
 };  
 
 #endif /* _TYPES_H_ */
